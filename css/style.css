@@ -129,7 +129,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: blue;
+  background-color: #a2bde8;
 }
 
 .flex-box {
@@ -160,7 +160,7 @@ ul {
   float: left;
   padding: 10px;
   width: 200px;
-  display: none;
+  /*display: none;*/
 }
 
 img {

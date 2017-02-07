@@ -4,14 +4,14 @@
 		"contacts" : {
 			"mobile" : "123 456 789",
 			"email" : "karen@super.com",
-			"github" : "Karen Kim",
+			"github" : "karenakim",
 			"location" : "Manchester, NH"
 		},
-		"welcomeMessage" : "Hello world!!! Here I come....",
+		"welcomeMessage" : "Inspired to change to world...one page at a time,  as a web developer",
 		"skills" : [
 			"sleep", "drink", "eat"
 		],
-		"biopic" : "images/fry.jpg"
+		"biopic" : "images/me.jpg"
 	};
 
 	var education = {
@@ -76,19 +76,19 @@
 				"title" : "How to made bread",
 				"dates" : "2015-2016",
 				"description" : "worked so so hard!",
-				"images" : ["http://ualr.edu/itservices/files/2006/10/projectManagement.jpg"]
+				"images" : ["images/project1.jpg"]
 			},
 			{
 				"title" : "How to clean a house",
 				"dates" : "2016-2017",
 				"description" : "worked so hard!",
-				"images" : ["http://www.novosystems.uk/index_htm_files/1206.png"]
+				"images" : ["images/project2.png"]
 			},
 			{
 				"title" : "How to clean a room",
 				"dates" : "2012-2014",
 				"description" : "worked so hard!",
-				"images" : ["http://ualr.edu/itservices/files/2006/10/projectManagement.jpg"]
+				"images" : ["images/project3.png"]
 			}
 		]
 	};
@@ -100,14 +100,26 @@
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 		$("#header").append(formattedRole);
 
-		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
-		$("#header").append(formattedBiopic);
 
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 		$("#header").append(formattedWelcomeMsg);
 
+		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
+		$("#header").append(formattedBiopic);
+
+
 		$("#header").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 		$("#header").append(HTMLemail.replace("%data%", bio.contacts.email));
+
+
+		$("#header").append(HTMLgithub.replace("%data%", bio.contacts.github));
+
+		$("#header").append(HTMLskillsStart );
+
+
+		for (skill in bio.skills){
+			$("#header").append(HTMLskills.replace("%data%", bio.skills[skill]));
+		}
 
 	}
 
