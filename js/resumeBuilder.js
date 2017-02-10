@@ -19,7 +19,7 @@
 	            "name": "University of Windsor",
 	            "location": "Windsor, Ontario",
 	            "degree": "Master of Science",
-	            "major": ["Computer Science"],
+	            "majors": ["Computer Science"],
 	            "description": "Did a good job",
 	            "dates": "June 2011 - 2016"
 	        },
@@ -102,14 +102,25 @@
 	    var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
 	    $("#header").append(formattedBiopic);
 
-	    $("#header").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-	    $("#header").append(HTMLemail.replace("%data%", bio.contacts.email));
-	    $("#header").append(HTMLgithub.replace("%data%", bio.contacts.github));
+	    // $("#header").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	    // $("#header").append(HTMLemail.replace("%data%", bio.contacts.email));
+	    // $("#header").append(HTMLgithub.replace("%data%", bio.contacts.github));
+
+
+	    $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    	$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
 	    $("#header").append(HTMLskillsStart);
 	    bio.skills.forEach(function(skill) {
 	        $("#header").append(HTMLskills.replace("%data%", skill));
 	    });
+
+	    $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    	$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    	$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    	$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 	};
 
 
@@ -120,6 +131,9 @@
 	        $(".education-entry:last").append(HTMLschoolDegree.replace("%data%", school.degree));
 	        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
 	        $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
+	        school.majors.forEach(function(major) {
+	        	$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", major));
+	    	});
 	    });
 
 	    education.onlineCourses.forEach(function(onlineCourse) {
@@ -144,6 +158,10 @@
 
 	        var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
 	        $(".work-entry:last").append(formattedDescription);
+
+	        var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+	        $(".work-entry:last").append(formattedLocation);
+
 	    });
 	};
 
